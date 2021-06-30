@@ -31,7 +31,7 @@ jobs:
 
       - name: Login to DockerHub
         run:
-          printenv PASSWORD | docker login --username "$USERNAME"
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
         env:
           USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
