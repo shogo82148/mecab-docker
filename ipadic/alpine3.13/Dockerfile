@@ -16,7 +16,7 @@ RUN set -eux; \
     && ./configure --enable-utf8-only \
     && make -j$(nproc) && make install \
 # build the dictionary
-    cd "/usr/src/mecab/mecab-ipadic-${IPADIC_VERSION}" \
+    && cd "/usr/src/mecab/mecab-ipadic-${IPADIC_VERSION}" \
     && ./configure --with-charset=utf8 \
     && make -j$(nproc) && make install \
 # install the runtime dependencies
