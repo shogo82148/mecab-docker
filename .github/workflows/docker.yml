@@ -36,6 +36,7 @@ jobs:
           USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Publish
         run: |
           docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
