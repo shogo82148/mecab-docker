@@ -18,7 +18,7 @@ jobs:
           - alpine3.14
           - buster
           - slim-buster
-        dict:
+        dictionary:
           - ipadic
     steps:
       - uses: docker/setup-qemu-action@v1
@@ -27,3 +27,4 @@ jobs:
       - name: build
         run: |
           docker buildx build --load --platform linux/amd64,linux/arm64 -t mecab .
+        working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
