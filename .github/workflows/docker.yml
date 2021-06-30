@@ -33,9 +33,9 @@ jobs:
         run:
           printenv PASSWORD | docker login --username "$USERNAME"
         env:
-          USERNAME: ${{ secret.DOCKERHUB_USERNAME }}
-          PASSWORD: ${{ secret.DOCKERHUB_PASSWORD }}
+          USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
         run: |
-          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secret.DOCKERHUB_USERNAME }}/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
