@@ -18,6 +18,8 @@ jobs:
           - alpine3.14
           - buster
           - slim-buster
+          - bullseye
+          - slim-bullseye
         dictionary:
           - ipadic
           - jumandic
