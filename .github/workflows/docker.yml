@@ -45,6 +45,7 @@ jobs:
           printenv PASSWORD | docker login ghcr.io --username "$USERNAME" --password-stdin
           docker buildx build --push --platform linux/amd64,linux/arm64 -t ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
           docker logout
+        working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
         env:
           USERNAME: ${{ github.repository_owner }}
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
