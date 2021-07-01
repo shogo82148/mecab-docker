@@ -27,17 +27,25 @@ jobs:
       - uses: actions/checkout@v2
       - name: build
         run: |
-          docker buildx build --platform linux/amd64,linux/arm64 .
+          docker buildx build --pull --platform linux/amd64,linux/arm64 .
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
 
-      - name: Login to DockerHub
-        run:
+      - name: Publish to DockerHub
+        run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
+          docker logout
+        working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
         env:
           USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Publish
+      - name: Publish to GitHub Packages Container registry
         run: |
-          docker buildx build --push --platform linux/amd64,linux/arm64 -t ${{ secrets.DOCKERHUB_USERNAME }}/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
+          printenv PASSWORD | docker login ghcr.io --username "$USERNAME" --password-stdin
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
+          docker logout
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
