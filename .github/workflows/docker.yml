@@ -37,7 +37,7 @@ jobs:
           name = units[2] if units[1] == "tags" else ""
           print(f"::set-output name=name::{name}")
 
-          - name: build
+      - name: build
         run: |
           docker buildx build --pull --platform linux/amd64,linux/arm64 .
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
