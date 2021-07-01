@@ -27,15 +27,27 @@ jobs:
       - uses: docker/setup-qemu-action@v1
       - uses: docker/setup-buildx-action@v1
       - uses: actions/checkout@v2
-      - name: build
+
+      - id: tag
+        name: get the tag name
+        shell: python
+        run: |
+          ref = "${{ github.ref }}"
+          units = ref.split("/")
+          name = units[2] if units[1] == "tags" else ""
+          print(f"::set-output name=name::{name}")
+
+          - name: build
         run: |
           docker buildx build --pull --platform linux/amd64,linux/arm64 .
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
 
       - name: Publish to DockerHub
+        if: steps.tag.outputs.name != ''
         run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
           docker buildx build --push --platform linux/amd64,linux/arm64 -t "$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}-${{ steps.tag.outputs.name }}" .
           docker logout
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
         env:
@@ -43,9 +55,11 @@ jobs:
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Publish to GitHub Packages Container registry
+        if: steps.tag.outputs.name != ''
         run: |
           printenv PASSWORD | docker login ghcr.io --username "$USERNAME" --password-stdin
-          docker buildx build --push --platform linux/amd64,linux/arm64 -t ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }} .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}-${{ steps.tag.outputs.name }}" .
           docker logout
         working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
         env:
