@@ -1,0 +1,55 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: ECR Repository for MeCab
+
+Resources:
+  Repository:
+    DeletionPolicy: Retain
+    UpdateReplacePolicy: Retain
+    Type: AWS::ECR::PublicRepository
+    Properties:
+      RepositoryName: mecab
+      RepositoryCatalogData:
+        OperatingSystems: [ Linux ]
+        Architectures: [ x86-64, arm64 ]
+        RepositoryDescription: MeCab (Yet Another Part-of-Speech and Morphological Analyzer)
+        AboutText: |
+          # MeCab
+
+        UsageText: |
+          # Usage
+
+  DeploymentRole:
+    Type: AWS::IAM::Role
+    Properties:
+      # trust policy for using https://github.com/fuller-inc/actions-aws-assume-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::053160724612:root
+            Action:
+              - 'sts:AssumeRole'
+            Condition:
+              StringEquals:
+                "sts:ExternalId": shogo82148/mecab-docker
+          - Effect: Allow
+            Principal:
+              AWS: arn:aws:iam::053160724612:root
+            Action:
+              - 'sts:TagSession'
+      Policies:
+        - PolicyName: Deployment
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action:
+                  - "ecr-public:*"
+                Resource:
+                  - !GetAtt Repository.Arn
+              - Effect: Allow
+                Action:
+                  - "ecr-public:GetAuthorizationToken"
+                  - "sts:GetServiceBearerToken"
+                Resource: "*"

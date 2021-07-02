@@ -65,3 +65,20 @@ jobs:
         env:
           USERNAME: ${{ github.repository_owner }}
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        continue-on-error: true
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/mecab-ecr-DeploymentRole-HLLU42OOK2YJ
+          role-session-tagging: true
+
+      - name: Publish to ECR Public Registry
+        if: steps.tag.outputs.name != ''
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148s
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "public.ecr.aws/shogo82148/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
+          docker buildx build --push --platform linux/amd64,linux/arm64 -t "public.ecr.aws/shogo82148/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}-${{ steps.tag.outputs.name }}" .
+          docker logout
+        working-directory: ${{ matrix.dictionary }}/${{ matrix.distribution }}
