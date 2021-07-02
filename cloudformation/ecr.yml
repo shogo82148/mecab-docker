@@ -10,7 +10,7 @@ Resources:
       RepositoryName: mecab
       RepositoryCatalogData:
         OperatingSystems: [ Linux ]
-        Architectures: [ x86-64, arm64 ]
+        Architectures: [ x86-64, "ARM 64" ]
         RepositoryDescription: MeCab (Yet Another Part-of-Speech and Morphological Analyzer)
         AboutText: |
           # MeCab
