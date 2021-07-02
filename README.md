@@ -34,6 +34,13 @@ Only UTF-8 encoded dictionaries are supported.
 - jumandic-alpine3.12
 - jumandic-alpine3.11
 
+# License
+
+Dockerfiles are available under [the MIT License](https://github.com/shogo82148/mecab-docker/blob/main/LICENSE)
+
+These images contain MeCab, ipadic, and jumandic.
+The license information can be found in [CREDITS](https://github.com/shogo82148/mecab-docker/blob/main/CREDITS).
+
 # Usage
 
 The images are available on DockerHub, GitHub Packages Container registry, and Amazon ECR Public Gallery.
