@@ -17,16 +17,16 @@ Only UTF-8 encoded dictionaries are supported.
 
 ## Available Tags
 
-- ipadic-billseye
-- ipadic-slim-billseye
+- ipadic-bullseye
+- ipadic-slim-bullseye
 - ipadic-buster
 - ipadic-slim-buster
 - ipadic-alpine3.14
 - ipadic-alpine3.13
 - ipadic-alpine3.12
 - ipadic-alpine3.11
-- jumandic-billseye
-- jumandic-slim-billseye
+- jumandic-bullseye
+- jumandic-slim-bullseye
 - jumandic-buster
 - jumandic-slim-buster
 - jumandic-alpine3.14
