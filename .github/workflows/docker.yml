@@ -57,7 +57,7 @@ jobs:
       - name: Publish to GitHub Packages Container registry
         if: steps.tag.outputs.name != ''
         run: |
-          printenv PASSWORD | docker login ghcr.io --username "$USERNAME" --password-stdin
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
           docker buildx build --push --platform linux/amd64,linux/arm64 -t "ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
           docker buildx build --push --platform linux/amd64,linux/arm64 -t "ghcr.io/$USERNAME/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}-${{ steps.tag.outputs.name }}" .
           docker logout
@@ -77,7 +77,7 @@ jobs:
       - name: Publish to ECR Public Registry
         if: steps.tag.outputs.name != ''
         run: |
-          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148s
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
           docker buildx build --push --platform linux/amd64,linux/arm64 -t "public.ecr.aws/shogo82148/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}" .
           docker buildx build --push --platform linux/amd64,linux/arm64 -t "public.ecr.aws/shogo82148/mecab:${{ matrix.dictionary }}-${{ matrix.distribution }}-${{ steps.tag.outputs.name }}" .
           docker logout
