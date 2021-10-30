@@ -17,6 +17,8 @@ Only UTF-8 encoded dictionaries are supported.
 
 ## Available Tags
 
+- ipadic-bookworm
+- ipadic-slim-bookworm
 - ipadic-bullseye
 - ipadic-slim-bullseye
 - ipadic-buster
@@ -25,6 +27,8 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-alpine3.13
 - ipadic-alpine3.12
 - ipadic-alpine3.11
+- jumandic-bookworm
+- jumandic-slim-bookworm
 - jumandic-bullseye
 - jumandic-slim-bullseye
 - jumandic-buster
@@ -41,6 +45,7 @@ Dockerfiles are available under [the MIT License](https://github.com/shogo82148/
 These images contain MeCab, ipadic, and jumandic.
 The license information can be found in [CREDITS](https://github.com/shogo82148/mecab-docker/blob/main/CREDITS).
 
+UsageText: |
 # Usage
 
 The images are available on DockerHub, GitHub Packages Container registry, and Amazon ECR Public Gallery.
@@ -52,7 +57,7 @@ The images are available on DockerHub, GitHub Packages Container registry, and A
 ## DockerHub
 
 ```
-$ docker run -it --rm shogo82148/mecab:ipadic-slim-buster
+$ docker run -it --rm shogo82148/mecab:ipadic-slim-bullseye
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ
@@ -67,7 +72,7 @@ EOS
 ## GitHub Packages Container registry
 
 ```
-$ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-buster
+$ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-bullseye
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ
@@ -82,7 +87,7 @@ EOS
 ## Amazon ECR Public Gallery
 
 ```
-$ docker run -it --rm public.ecr.aws/shogo82148/mecab:ipadic-slim-buster
+$ docker run -it --rm public.ecr.aws/shogo82148/mecab:ipadic-slim-bullseye
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ

@@ -32,16 +32,20 @@ Resources:
 
           ## Available Tags
 
-          - ipadic-billseye
-          - ipadic-slim-billseye
+          - ipadic-bookworm
+          - ipadic-slim-bookworm
+          - ipadic-bullseye
+          - ipadic-slim-bullseye
           - ipadic-buster
           - ipadic-slim-buster
           - ipadic-alpine3.14
           - ipadic-alpine3.13
           - ipadic-alpine3.12
           - ipadic-alpine3.11
-          - jumandic-billseye
-          - jumandic-slim-billseye
+          - jumandic-bookworm
+          - jumandic-slim-bookworm
+          - jumandic-bullseye
+          - jumandic-slim-bullseye
           - jumandic-buster
           - jumandic-slim-buster
           - jumandic-alpine3.14
@@ -68,7 +72,7 @@ Resources:
           ## DockerHub
 
           ```
-          $ docker run -it --rm shogo82148/mecab:ipadic-slim-buster
+          $ docker run -it --rm shogo82148/mecab:ipadic-slim-bullseye
           すもももももももものうち
           すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
           も      助詞,係助詞,*,*,*,*,も,モ,モ
@@ -83,7 +87,7 @@ Resources:
           ## GitHub Packages Container registry
 
           ```
-          $ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-buster
+          $ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-bullseye
           すもももももももものうち
           すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
           も      助詞,係助詞,*,*,*,*,も,モ,モ
@@ -98,7 +102,7 @@ Resources:
           ## Amazon ECR Public Gallery
 
           ```
-          $ docker run -it --rm public.ecr.aws/shogo82148/mecab:ipadic-slim-buster
+          $ docker run -it --rm public.ecr.aws/shogo82148/mecab:ipadic-slim-bullseye
           すもももももももものうち
           すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
           も      助詞,係助詞,*,*,*,*,も,モ,モ
