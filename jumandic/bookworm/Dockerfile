@@ -1,6 +1,4 @@
-# XXX: buildpack-deps:bookworm is not yet available.
-# FROM buildpack-deps:bookworm
-FROM debian:bookworm
+FROM buildpack-deps:bookworm
 
 ENV MECAB_VERSION 0.996.6
 ENV JUMANDIC_VERSION 7.0-20130310
