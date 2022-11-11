@@ -36,10 +36,12 @@ jobs:
         name: get the tag name
         shell: python
         run: |
+          import os
           ref = "${{ github.ref }}"
           units = ref.split("/")
           name = units[2] if units[1] == "tags" else ""
-          print(f"::set-output name=name::{name}")
+          with open(os.environ["GITHUB_OUTPUT"], 'a', encoding="utf-8") as f:
+              f.write('name={0}\n'.format(name))
 
       - name: build
         run: |
