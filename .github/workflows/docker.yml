@@ -36,6 +36,7 @@ jobs:
         name: get the tag name
         shell: python
         run: |
+          import os
           ref = "${{ github.ref }}"
           units = ref.split("/")
           name = units[2] if units[1] == "tags" else ""
