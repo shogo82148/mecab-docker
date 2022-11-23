@@ -7,7 +7,8 @@ on:
 
 permissions:
   id-token: write
-  contents: read
+  contents: write
+  packages: write
 
 jobs:
   build:
@@ -22,6 +23,7 @@ jobs:
           - slim-bullseye
           - buster
           - slim-buster
+          - alpine3.17
           - alpine3.16
           - alpine3.15
           - alpine3.14
