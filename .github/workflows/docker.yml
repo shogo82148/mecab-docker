@@ -35,7 +35,7 @@ jobs:
           - jumandic
     steps:
       - uses: docker/setup-qemu-action@v2
-      - uses: docker/setup-buildx-action@v2
+      - uses: docker/setup-buildx-action@v3
       - uses: actions/checkout@v4
 
       - id: tag
