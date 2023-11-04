@@ -24,11 +24,6 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-buster
 - ipadic-slim-buster
 - ipadic-alpine3.16
-- ipadic-alpine3.15
-- ipadic-alpine3.14
-- ipadic-alpine3.13
-- ipadic-alpine3.12
-- ipadic-alpine3.11
 - jumandic-bookworm
 - jumandic-slim-bookworm
 - jumandic-bullseye
@@ -36,11 +31,6 @@ Only UTF-8 encoded dictionaries are supported.
 - jumandic-buster
 - jumandic-slim-buster
 - jumandic-alpine3.16
-- jumandic-alpine3.15
-- jumandic-alpine3.14
-- jumandic-alpine3.13
-- jumandic-alpine3.12
-- jumandic-alpine3.11
 
 # License
 
@@ -49,7 +39,6 @@ Dockerfiles are available under [the MIT License](https://github.com/shogo82148/
 These images contain MeCab, ipadic, and jumandic.
 The license information can be found in [CREDITS](https://github.com/shogo82148/mecab-docker/blob/main/CREDITS).
 
-UsageText: |
 # Usage
 
 The images are available on DockerHub, GitHub Packages Container registry, and Amazon ECR Public Gallery.
