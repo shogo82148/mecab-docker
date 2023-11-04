@@ -15,16 +15,25 @@ updates:
     directory: "ipadic/alpine3.18"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "ipadic/alpine3.17"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "ipadic/alpine3.16"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "ipadic/bookworm"
@@ -62,16 +71,25 @@ updates:
     directory: "jumandic/alpine3.18"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "jumandic/alpine3.17"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "jumandic/alpine3.16"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major, version-update:semver-minor]
 
   - package-ecosystem: "docker"
     directory: "jumandic/bookworm"
