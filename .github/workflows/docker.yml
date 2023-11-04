@@ -25,11 +25,6 @@ jobs:
           - slim-buster
           - alpine3.17
           - alpine3.16
-          - alpine3.15
-          - alpine3.14
-          - alpine3.13
-          - alpine3.12
-          - alpine3.11
         dictionary:
           - ipadic
           - jumandic
