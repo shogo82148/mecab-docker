@@ -1,9 +1,8 @@
-FROM buildpack-deps:bookworm
+FROM debian:bookworm-20231009
 
 ENV MECAB_VERSION 0.996.6
 ENV IPADIC_VERSION 2.7.0-20070801
 
-# TODO: remove apt-get after buildpack-deps:bookworm is available.
 RUN set -eux; \
     \
     apt-get update && apt-get install -y --no-install-recommends \
