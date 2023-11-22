@@ -25,4 +25,4 @@ jobs:
         with:
           perl-version: "5.38"
       - run: |
-          ./scripts/build.sh ipadic buster
+          ./scripts/build.pl ipadic buster

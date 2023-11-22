@@ -25,4 +25,4 @@ jobs:
         with:
           perl-version: "5.38"
       - run: |
-          ./scripts/build.sh jumandic alpine3.16
+          ./scripts/build.pl jumandic alpine3.16

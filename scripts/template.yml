@@ -25,4 +25,4 @@ jobs:
         with:
           perl-version: "5.38"
       - run: |
-          ./scripts/build.sh __DICTIONARY__ __DISTRIBUTION__
+          ./scripts/build.pl __DICTIONARY__ __DISTRIBUTION__

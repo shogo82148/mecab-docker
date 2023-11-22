@@ -25,4 +25,4 @@ jobs:
         with:
           perl-version: "5.38"
       - run: |
-          ./scripts/build.sh ipadic slim-bullseye
+          ./scripts/build.pl ipadic slim-bullseye

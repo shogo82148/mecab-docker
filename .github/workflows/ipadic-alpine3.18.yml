@@ -25,4 +25,4 @@ jobs:
         with:
           perl-version: "5.38"
       - run: |
-          ./scripts/build.sh ipadic alpine3.18
+          ./scripts/build.pl ipadic alpine3.18
