@@ -1,4 +1,4 @@
-FROM debian:bullseye-20231030-slim
+FROM debian:bullseye-20231120-slim
 
 ENV MECAB_VERSION 0.996.6
 ENV JUMANDIC_VERSION 7.0-20130310
