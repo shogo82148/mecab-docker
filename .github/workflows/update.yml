@@ -1,0 +1,33 @@
+name: update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "32 20 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: generate
+        uses: shogo82148/actions-github-app-token@v1
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
+      - id: update
+        name: update
+        run: |
+          ./script/update.pl
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - uses: shogo82148/actions-commit-and-create-pr@v1
+        with:
+          github-token: ${{ steps.generate.outputs.token }}
+          commit-message: bump MeCab v${{ steps.update.outputs.latest-version }}
