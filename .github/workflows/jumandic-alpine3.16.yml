@@ -32,8 +32,8 @@ jobs:
 
       - name: Publish to DockerHub
         env:
-          USERNAME: ${{ vars.DOCKER_USERNAME }}
-          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
           ./scripts/publish.pl jumandic alpine3.16 "$USERNAME"
