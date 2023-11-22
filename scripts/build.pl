@@ -32,6 +32,14 @@ chdir "$FindBin::Bin/..";
 
 docker(
     "build",
-    "-t", "mecab-$dic-$dist",
+    "--platform", "arm64",
+    "-t", "mecab-$dic-$dist-arm64",
+    "$dic/$dist",
+);
+
+docker(
+    "build",
+    "--platform", "amd64",
+    "-t", "mecab-$dic-$dist-amd64",
     "$dic/$dist",
 );
