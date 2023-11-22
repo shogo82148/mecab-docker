@@ -1,0 +1,28 @@
+name: Build jumandic/alpine3.18
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "jumandic-alpine3.18/*"
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: write
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: docker/setup-qemu-action@v3
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/checkout@v4
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
+      - run: |
+          ./scripts/build.sh jumandic alpine3.18

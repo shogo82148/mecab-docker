@@ -1,0 +1,11 @@
+[
+    "bookworm",
+    "slim-bookworm",
+    "bullseye",
+    "slim-bullseye",
+    "buster",
+    "slim-buster",
+    "alpine3.18",
+    "alpine3.17",
+    "alpine3.16"
+]
