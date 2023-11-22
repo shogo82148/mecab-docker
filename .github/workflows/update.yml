@@ -23,7 +23,7 @@ jobs:
       - id: update
         name: update
         run: |
-          ./scripts/update.pl
+          ./scripts/update_mecab.pl
         env:
           GH_TOKEN: ${{ github.token }}
 
