@@ -1,4 +1,4 @@
-FROM debian:bookworm-20231030-slim
+FROM debian:bookworm-20231120-slim
 
 ENV MECAB_VERSION 0.996.6
 ENV IPADIC_VERSION 2.7.0-20070801
