@@ -1,0 +1,30 @@
+name: create new release
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+      # secrets.GITHUB_TOKEN doesn't start a new workflow run, but we want.
+      - id: generate
+        uses: shogo82148/actions-github-app-token@v1
+
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ steps.generate.outputs.token }}
+          fetch-depth: 0 # we need all tags
+
+      - uses: shogo82148/actions-setup-perl@v1
+        with:
+          perl-version: "5.38"
+
+      - run: ./scripts/release.pl
