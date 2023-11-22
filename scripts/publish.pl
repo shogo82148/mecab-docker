@@ -30,7 +30,7 @@ my $dist = $ARGV[1];
 my $registry = $ARGV[2];
 
 my $ref = $ENV{GITHUB_REF} || '';
-if ($ref !~ m(^refs/tags/[^/]/(.*))) {
+if ($ref !~ m(^refs/tags/[^/]+/(.*))) {
     say STDERR "skip, '$ref' is not a tag";
     exit 0;
 }
