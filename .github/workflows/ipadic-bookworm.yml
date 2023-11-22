@@ -1,4 +1,4 @@
-name: Build ipadic/bookworm
+name: Build ipadic-bookworm
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     tags:
       - "ipadic-bookworm/*"
   pull_request:
+    paths:
+      - ".github/workflows/ipadic-bookworm.yml"
+      - "ipadic/bookworm/**"
   workflow_dispatch:
 
 permissions:
@@ -26,3 +29,34 @@ jobs:
           perl-version: "5.38"
       - run: |
           ./scripts/build.pl ipadic bookworm
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          ./scripts/publish.pl ipadic bookworm "$USERNAME"
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+          ./scripts/publish.pl ipadic bookworm ghcr.io/"$USERNAME"
+          docker logout
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        continue-on-error: true
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/mecab-ecr-DeploymentRole-HLLU42OOK2YJ
+          role-session-tagging: true
+      - name: Publish to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+          ./scripts/publish.pl ipadic bookworm public.ecr.aws/shogo82148
+          docker logout

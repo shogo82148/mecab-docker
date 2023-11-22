@@ -1,4 +1,4 @@
-name: Build jumandic/slim-buster
+name: Build jumandic-slim-buster
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     tags:
       - "jumandic-slim-buster/*"
   pull_request:
+    paths:
+      - ".github/workflows/jumandic-slim-buster.yml"
+      - "jumandic/slim-buster/**"
   workflow_dispatch:
 
 permissions:
@@ -26,3 +29,34 @@ jobs:
           perl-version: "5.38"
       - run: |
           ./scripts/build.pl jumandic slim-buster
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          ./scripts/publish.pl jumandic slim-buster "$USERNAME"
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+          ./scripts/publish.pl jumandic slim-buster ghcr.io/"$USERNAME"
+          docker logout
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        continue-on-error: true
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/mecab-ecr-DeploymentRole-HLLU42OOK2YJ
+          role-session-tagging: true
+      - name: Publish to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+          ./scripts/publish.pl jumandic slim-buster public.ecr.aws/shogo82148
+          docker logout

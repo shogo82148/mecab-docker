@@ -1,4 +1,4 @@
-name: Build __DICTIONARY__/__DISTRIBUTION__
+name: Build __DICTIONARY__-__DISTRIBUTION__
 
 on:
   push:
@@ -7,6 +7,9 @@ on:
     tags:
       - "__DICTIONARY__-__DISTRIBUTION__/*"
   pull_request:
+    paths:
+      - ".github/workflows/__DICTIONARY__-__DISTRIBUTION__.yml"
+      - "__DICTIONARY__/__DISTRIBUTION__/**"
   workflow_dispatch:
 
 permissions:
@@ -26,3 +29,34 @@ jobs:
           perl-version: "5.38"
       - run: |
           ./scripts/build.pl __DICTIONARY__ __DISTRIBUTION__
+
+      - name: Publish to DockerHub
+        env:
+          USERNAME: ${{ vars.DOCKER_USERNAME }}
+          PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
+          ./scripts/publish.pl __DICTIONARY__ __DISTRIBUTION__ "$USERNAME"
+          docker logout
+
+      - name: Publish to GitHub Packages Container registry
+        env:
+          USERNAME: ${{ github.repository_owner }}
+          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
+          ./scripts/publish.pl __DICTIONARY__ __DISTRIBUTION__ ghcr.io/"$USERNAME"
+          docker logout
+
+      - name: Configure AWS Credentials
+        uses: fuller-inc/actions-aws-assume-role@v1
+        continue-on-error: true
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::445285296882:role/mecab-ecr-DeploymentRole-HLLU42OOK2YJ
+          role-session-tagging: true
+      - name: Publish to ECR Public Registry
+        run: |
+          aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/shogo82148
+          ./scripts/publish.pl __DICTIONARY__ __DISTRIBUTION__ public.ecr.aws/shogo82148
+          docker logout
