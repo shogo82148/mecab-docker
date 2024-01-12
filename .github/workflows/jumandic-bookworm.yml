@@ -2,8 +2,6 @@ name: Build jumandic-bookworm
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "jumandic-bookworm/*"
   pull_request:

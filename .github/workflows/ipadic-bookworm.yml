@@ -2,8 +2,6 @@ name: Build ipadic-bookworm
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "ipadic-bookworm/*"
   pull_request:

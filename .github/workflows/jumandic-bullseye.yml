@@ -2,8 +2,6 @@ name: Build jumandic-bullseye
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "jumandic-bullseye/*"
   pull_request:

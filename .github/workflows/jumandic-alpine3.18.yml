@@ -2,8 +2,6 @@ name: Build jumandic-alpine3.18
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "jumandic-alpine3.18/*"
   pull_request:
