@@ -2,8 +2,6 @@ name: Build ipadic-bullseye
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "ipadic-bullseye/*"
   pull_request:

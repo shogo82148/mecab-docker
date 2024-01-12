@@ -2,8 +2,6 @@ name: Build ipadic-slim-bullseye
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "ipadic-slim-bullseye/*"
   pull_request:

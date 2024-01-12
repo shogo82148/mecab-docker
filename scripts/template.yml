@@ -2,8 +2,6 @@ name: Build __DICTIONARY__-__DISTRIBUTION__
 
 on:
   push:
-    branches:
-      - main
     tags:
       - "__DICTIONARY__-__DISTRIBUTION__/*"
   pull_request:
