@@ -1,4 +1,4 @@
-FROM debian:bookworm-20231218-slim
+FROM debian:bookworm-20240110-slim
 
 ENV MECAB_VERSION 0.996.9
 ENV JUMANDIC_VERSION 7.0-20130310
