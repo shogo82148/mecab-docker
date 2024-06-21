@@ -11,7 +11,27 @@ updates:
 
   # Maintain docker base images
   - package-ecosystem: "docker"
-    directories: "**"
+    directories:
+      - "ipadic/alpine3.19"
+      - "ipadic/alpine3.18"
+      - "ipadic/alpine3.17"
+      - "ipadic/alpine3.16"
+      - "ipadic/bookworm"
+      - "ipadic/bullseye"
+      - "ipadic/buster"
+      - "ipadic/slim-bookworm"
+      - "ipadic/slim-bullseye"
+      - "ipadic/slim-buster"
+      - "jumandic/alpine3.19"
+      - "jumandic/alpine3.18"
+      - "jumandic/alpine3.17"
+      - "jumandic/alpine3.16"
+      - "jumandic/bookworm"
+      - "jumandic/bullseye"
+      - "jumandic/buster"
+      - "jumandic/slim-bookworm"
+      - "jumandic/slim-bullseye"
+      - "jumandic/slim-buster"
     schedule:
       interval: "daily"
     ignore:
