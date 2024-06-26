@@ -23,6 +23,7 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-slim-bullseye
 - ipadic-buster
 - ipadic-slim-buster
+- ipadic-alpine3.20
 - ipadic-alpine3.19
 - ipadic-alpine3.18
 - ipadic-alpine3.17
@@ -33,6 +34,7 @@ Only UTF-8 encoded dictionaries are supported.
 - jumandic-slim-bullseye
 - jumandic-buster
 - jumandic-slim-buster
+- jumandic-alpine3.20
 - jumandic-alpine3.19
 - jumandic-alpine3.18
 - jumandic-alpine3.17
