@@ -3,8 +3,6 @@
     "slim-bookworm",
     "bullseye",
     "slim-bullseye",
-    "buster",
-    "slim-buster",
     "alpine3.21",
     "alpine3.20",
     "alpine3.19",
