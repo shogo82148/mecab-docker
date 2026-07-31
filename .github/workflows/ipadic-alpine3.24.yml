@@ -1,13 +1,13 @@
-name: Build ipadic-alpine3.20
+name: Build ipadic-alpine3.24
 
 on:
   push:
     tags:
-      - "ipadic-alpine3.20/*"
+      - "ipadic-alpine3.24/*"
   pull_request:
     paths:
-      - ".github/workflows/ipadic-alpine3.20.yml"
-      - "ipadic/alpine3.20/**"
+      - ".github/workflows/ipadic-alpine3.24.yml"
+      - "ipadic/alpine3.24/**"
   workflow_dispatch:
 
 permissions:
@@ -25,7 +25,7 @@ jobs:
         with:
           perl-version: "5.44"
       - run: |
-          ./scripts/build.pl ipadic alpine3.20
+          ./scripts/build.pl ipadic alpine3.24
 
       - name: Publish to DockerHub
         if: github.event_name == 'push'
@@ -34,7 +34,7 @@ jobs:
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
         run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin
-          ./scripts/publish.pl ipadic alpine3.20 "$USERNAME"
+          ./scripts/publish.pl ipadic alpine3.24 "$USERNAME"
           docker logout
 
       - name: Publish to GitHub Packages Container registry
@@ -44,5 +44,5 @@ jobs:
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
         run: |
           printenv PASSWORD | docker login --username "$USERNAME" --password-stdin ghcr.io
-          ./scripts/publish.pl ipadic alpine3.20 ghcr.io/"$USERNAME"
+          ./scripts/publish.pl ipadic alpine3.24 ghcr.io/"$USERNAME"
           docker logout
