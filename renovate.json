@@ -2,5 +2,34 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "packageRules": [
+    {
+      "description": "Allow only patch updates for Alpine",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "alpine"
+      ],
+      "matchUpdateTypes": [
+        "major",
+        "minor"
+      ],
+      "enabled": false
+    },
+    {
+      "description": "Allow minor and patch updates for Debian",
+      "matchDatasources": [
+        "docker"
+      ],
+      "matchPackageNames": [
+        "debian"
+      ],
+      "matchUpdateTypes": [
+        "major"
+      ],
+      "enabled": false
+    }
   ]
 }
