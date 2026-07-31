@@ -51,9 +51,11 @@ The license information can be found in [CREDITS](https://github.com/shogo82148/
 
 The images are available on DockerHub, GitHub Packages Container registry, and Amazon ECR Public Gallery.
 
-- https://hub.docker.com/r/shogo82148/mecab
-- https://github.com/shogo82148/mecab-docker/pkgs/container/mecab
-- https://gallery.ecr.aws/shogo82148/mecab
+- <https://hub.docker.com/r/shogo82148/mecab>
+- <https://github.com/shogo82148/mecab-docker/pkgs/container/mecab>
+
+<https://gallery.ecr.aws/shogo82148/mecab> is deprecated.
+It no longer receives any updates.
 
 ## DockerHub
 
