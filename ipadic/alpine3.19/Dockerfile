@@ -1,7 +1,7 @@
 FROM alpine:3.19.9
 
-ENV MECAB_VERSION 0.996.13
-ENV IPADIC_VERSION 2.7.0-20070801
+ENV MECAB_VERSION=0.996.13
+ENV IPADIC_VERSION=2.7.0-20070801
 
 RUN set -eux; \
     \
@@ -30,4 +30,4 @@ RUN set -eux; \
     && rm -rf /usr/src/mecab \
     && mecab --version
 
-CMD /usr/local/bin/mecab
+CMD ["/usr/local/bin/mecab"]

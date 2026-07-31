@@ -1,7 +1,7 @@
 FROM debian:bookworm-20240612-slim
 
-ENV MECAB_VERSION 0.996.13
-ENV JUMANDIC_VERSION 7.0-20130310
+ENV MECAB_VERSION=0.996.13
+ENV JUMANDIC_VERSION=7.0-20130310
 
 RUN set -eux; \
     \
@@ -35,4 +35,4 @@ RUN set -eux; \
     && rm -rf /var/lib/apt/lists/* \
     && mecab --version
 
-CMD /usr/local/bin/mecab
+CMD ["/usr/local/bin/mecab"]
