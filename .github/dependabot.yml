@@ -10,12 +10,27 @@ updates:
       interval: "daily"
 
   # Maintain docker base images
-  - package-ecosystem: "docker"
+  - package-ecosystem: "docker-alpine"
     directories:
-      - "ipadic/*"
-      - "jumandic/*"
+      - "ipadic/alpine*"
+      - "jumandic/alpine*"
     schedule:
       interval: "daily"
     ignore:
       - dependency-name: "*"
         update-types: [version-update:semver-major, version-update:semver-minor]
+  - package-ecosystem: "docker-debian"
+    directories:
+      - "ipadic/bookworm"
+      - "ipadic/bullseye"
+      - "ipadic/slim-bookworm"
+      - "ipadic/slim-bullseye"
+      - "jumandic/bookworm"
+      - "jumandic/bullseye"
+      - "jumandic/slim-bookworm"
+      - "jumandic/slim-bullseye"
+    schedule:
+      interval: "daily"
+    ignore:
+      - dependency-name: "*"
+        update-types: [version-update:semver-major]
