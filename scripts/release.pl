@@ -25,9 +25,9 @@ sub new_tag($dic, $dist) {
 }
 
 my $distributions = decode_json(slurp("$FindBin::Bin/distributions.json"));
-my $dictinaries = decode_json(slurp("$FindBin::Bin/dictinaries.json"));
+my $dictionaries = decode_json(slurp("$FindBin::Bin/dictionaries.json"));
 
-for my $dic(@$dictinaries) {
+for my $dic(@$dictionaries) {
     for my $dist(@$distributions) {
         my $tag = `git tag --sort -v:refname --list '$dic-$dist/*' | head -n 1`;
         chomp $tag;
