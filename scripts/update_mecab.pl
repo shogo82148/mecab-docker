@@ -50,9 +50,9 @@ for my $dic(@$dictionaries) {
         my $file = "$FindBin::Bin/../$dic/$dist/Dockerfile";
         my $dockerfile = slurp($file);
         say $dockerfile;
-        $dockerfile =~ s/^ENV MECAB_VERSION\s+.+$/ENV MECAB_VERSION $mecab_version/m;
-        $dockerfile =~ s/^ENV IPADIC_VERSION\s+.+$/ENV IPADIC_VERSION $ipadic_version/m;
-        $dockerfile =~ s/^ENV JUMANDIC_VERSION\s+.+$/ENV JUMANDIC_VERSION $jumandic_version/m;
+        $dockerfile =~ s/^ENV MECAB_VERSION=.+$/ENV MECAB_VERSION=$mecab_version/m;
+        $dockerfile =~ s/^ENV IPADIC_VERSION=.+$/ENV IPADIC_VERSION=$ipadic_version/m;
+        $dockerfile =~ s/^ENV JUMANDIC_VERSION=.+$/ENV JUMANDIC_VERSION=$jumandic_version/m;
         spew($file, $dockerfile);
     }
 }
