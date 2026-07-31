@@ -42,9 +42,9 @@ say STDERR "jumandic: $jumandic_version";
 set_output('latest-version', $mecab_version);
 
 my $distributions = decode_json(slurp("$FindBin::Bin/distributions.json"));
-my $dictinaries = decode_json(slurp("$FindBin::Bin/dictinaries.json"));
+my $dictionaries = decode_json(slurp("$FindBin::Bin/dictionaries.json"));
 
-for my $dic(@$dictinaries) {
+for my $dic(@$dictionaries) {
     for my $dist(@$distributions) {
         say STDERR "update $dic/$dist";
         my $file = "$FindBin::Bin/../$dic/$dist/Dockerfile";

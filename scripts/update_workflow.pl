@@ -16,11 +16,11 @@ sub slurp($file) {
 }
 
 my $distributions = decode_json(slurp("$FindBin::Bin/distributions.json"));
-my $dictinaries = decode_json(slurp("$FindBin::Bin/dictinaries.json"));
+my $dictionaries = decode_json(slurp("$FindBin::Bin/dictionaries.json"));
 
 my $template = slurp("$FindBin::Bin/template.yml");
 
-for my $dic(@$dictinaries) {
+for my $dic(@$dictionaries) {
     for my $dist(@$distributions) {
         my $workflow = $template;
         $workflow =~ s/__DICTIONARY__/$dic/g;
