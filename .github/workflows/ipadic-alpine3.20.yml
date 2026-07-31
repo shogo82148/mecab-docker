@@ -11,7 +11,6 @@ on:
   workflow_dispatch:
 
 permissions:
-  id-token: write
   contents: write
   packages: write
 
@@ -29,6 +28,7 @@ jobs:
           ./scripts/build.pl ipadic alpine3.20
 
       - name: Publish to DockerHub
+        if: github.event_name == 'push'
         env:
           USERNAME: ${{ vars.DOCKERHUB_USERNAME }}
           PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
@@ -38,6 +38,7 @@ jobs:
           docker logout
 
       - name: Publish to GitHub Packages Container registry
+        if: github.event_name == 'push'
         env:
           USERNAME: ${{ github.repository_owner }}
           PASSWORD: ${{ secrets.GITHUB_TOKEN }}
