@@ -25,11 +25,10 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-slim-bullseye
 - ipadic-buster
 - ipadic-slim-buster
-- ipadic-alpine3.20
-- ipadic-alpine3.19
-- ipadic-alpine3.18
-- ipadic-alpine3.17
-- ipadic-alpine3.16
+- ipadic-alpine3.24
+- ipadic-alpine3.23
+- ipadic-alpine3.22
+- ipadic-alpine3.21
 - jumandic-trixie
 - jumandic-trixie-slim
 - jumandic-bookworm
@@ -38,11 +37,10 @@ Only UTF-8 encoded dictionaries are supported.
 - jumandic-slim-bullseye
 - jumandic-buster
 - jumandic-slim-buster
-- jumandic-alpine3.20
-- jumandic-alpine3.19
-- jumandic-alpine3.18
-- jumandic-alpine3.17
-- jumandic-alpine3.16
+- jumandic-alpine3.24
+- jumandic-alpine3.23
+- jumandic-alpine3.22
+- jumandic-alpine3.21
 
 # License
 
@@ -80,21 +78,6 @@ EOS
 
 ```
 $ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-bullseye
-すもももももももものうち
-すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
-も      助詞,係助詞,*,*,*,*,も,モ,モ
-もも    名詞,一般,*,*,*,*,もも,モモ,モモ
-も      助詞,係助詞,*,*,*,*,も,モ,モ
-もも    名詞,一般,*,*,*,*,もも,モモ,モモ
-の      助詞,連体化,*,*,*,*,の,ノ,ノ
-うち    名詞,非自立,副詞可能,*,*,*,うち,ウチ,ウチ
-EOS
-```
-
-## Amazon ECR Public Gallery
-
-```
-$ docker run -it --rm public.ecr.aws/shogo82148/mecab:ipadic-slim-bullseye
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ
