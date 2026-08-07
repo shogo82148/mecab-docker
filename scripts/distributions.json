@@ -1,4 +1,6 @@
 [
+    "trixie",
+    "slim-trixie",
     "bookworm",
     "slim-bookworm",
     "bullseye",
