@@ -17,6 +17,8 @@ Only UTF-8 encoded dictionaries are supported.
 
 ## Available Tags
 
+- ipadic-trixie
+- ipadic-trixie-slim
 - ipadic-bookworm
 - ipadic-slim-bookworm
 - ipadic-bullseye
@@ -28,6 +30,8 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-alpine3.18
 - ipadic-alpine3.17
 - ipadic-alpine3.16
+- jumandic-trixie
+- jumandic-trixie-slim
 - jumandic-bookworm
 - jumandic-slim-bookworm
 - jumandic-bullseye
