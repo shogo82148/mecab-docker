@@ -5,7 +5,13 @@ ENV JUMANDIC_VERSION=7.0-20130310
 
 RUN set -eux; \
     \
-    apt-get update && apt-get install -y --no-install-recommends \
+    printf '%s\n' \
+        'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/20260901T000000Z/ bullseye main' \
+        'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian/20260901T000000Z/ bullseye-updates main' \
+        'deb [check-valid-until=no] http://snapshot.debian.org/archive/debian-security/20260901T000000Z/ bullseye-security main' \
+        > /etc/apt/sources.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends \
         tar wget g++ make ca-certificates \
     && wget -O mecab.tar.gz "https://github.com/shogo82148/mecab/releases/download/v${MECAB_VERSION}/mecab-${MECAB_VERSION}.tar.gz" \
     && wget -O mecab-jumandic.tar.gz "https://github.com/shogo82148/mecab/releases/download/v${MECAB_VERSION}/mecab-jumandic-${JUMANDIC_VERSION}.tar.gz" \
