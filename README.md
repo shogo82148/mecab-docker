@@ -21,8 +21,6 @@ Only UTF-8 encoded dictionaries are supported.
 - ipadic-trixie-slim
 - ipadic-bookworm
 - ipadic-slim-bookworm
-- ipadic-bullseye
-- ipadic-slim-bullseye
 - ipadic-buster
 - ipadic-slim-buster
 - ipadic-alpine3.24
@@ -33,8 +31,6 @@ Only UTF-8 encoded dictionaries are supported.
 - jumandic-trixie-slim
 - jumandic-bookworm
 - jumandic-slim-bookworm
-- jumandic-bullseye
-- jumandic-slim-bullseye
 - jumandic-buster
 - jumandic-slim-buster
 - jumandic-alpine3.24
@@ -62,7 +58,7 @@ It no longer receives any updates.
 ## DockerHub
 
 ```
-$ docker run -it --rm shogo82148/mecab:ipadic-slim-bullseye
+$ docker run -it --rm shogo82148/mecab:ipadic-slim-trixie
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ
@@ -77,7 +73,7 @@ EOS
 ## GitHub Packages Container registry
 
 ```
-$ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-bullseye
+$ docker run -it --rm ghcr.io/shogo82148/mecab:ipadic-slim-trixie
 すもももももももものうち
 すもも  名詞,一般,*,*,*,*,すもも,スモモ,スモモ
 も      助詞,係助詞,*,*,*,*,も,モ,モ
