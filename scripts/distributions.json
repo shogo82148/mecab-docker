@@ -3,8 +3,6 @@
     "slim-trixie",
     "bookworm",
     "slim-bookworm",
-    "bullseye",
-    "slim-bullseye",
     "alpine3.24",
     "alpine3.23",
     "alpine3.22",
