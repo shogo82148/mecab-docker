@@ -14,10 +14,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7.0.1
       - id: generate
-        uses: shogo82148/actions-github-app-token@v1
-      - uses: shogo82148/actions-setup-perl@v1
+        uses: shogo82148/actions-github-app-token@v1.3.4
+      - uses: shogo82148/actions-setup-perl@v1.44.4
         with:
           perl-version: "5.44"
       - id: update
@@ -27,7 +27,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - uses: shogo82148/actions-commit-and-create-pr@v1
+      - uses: shogo82148/actions-commit-and-create-pr@v1.1.4
         with:
           github-token: ${{ steps.generate.outputs.token }}
           commit-message: bump MeCab v${{ steps.update.outputs.latest-version }}
