@@ -7,91 +7,91 @@ workflows:
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-alpine3.22.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-alpine3.23.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-alpine3.24.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-bookworm.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-slim-bookworm.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-slim-trixie.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/ipadic-trixie.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-alpine3.21.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-alpine3.22.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-alpine3.23.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-alpine3.24.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-bookworm.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-slim-bookworm.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-slim-trixie.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/jumandic-trixie.yml':
         - 'actions/checkout@v7.0.1'
         - 'docker/setup-buildx-action@v4.4.1'
         - 'docker/setup-qemu-action@v4.4.0'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/release.yml':
         - 'actions/checkout@v7.0.1'
         - 'shogo82148/actions-github-app-token@v1.3.4'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
     '.github/workflows/update.yml':
         - 'actions/checkout@v7.0.1'
         - 'shogo82148/actions-commit-and-create-pr@v1.1.4'
         - 'shogo82148/actions-github-app-token@v1.3.4'
-        - 'shogo82148/actions-setup-perl@v1.44.4'
+        - 'shogo82148/actions-setup-perl@v1.44.5'
 dependencies:
     'actions/checkout@v7.0.1':
         ref: 'v7.0.1'
@@ -118,8 +118,8 @@ dependencies:
         commit: 'sha1-bf955a861ff7c9d64c86b567bac12d7baae5614a'
         owner_id: 1157344
         repo_id: 398574950
-    'shogo82148/actions-setup-perl@v1.44.4':
-        ref: 'v1.44.4'
-        commit: 'sha1-3b59bd33efdae98406a9bc4b75a4aa041e11993a'
+    'shogo82148/actions-setup-perl@v1.44.5':
+        ref: 'v1.44.5'
+        commit: 'sha1-eebc5c886de14ebbfcd2493d49a12007d2c30477'
         owner_id: 1157344
         repo_id: 205511355
